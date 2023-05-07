@@ -15,3 +15,12 @@ golang.org/x/tools/go/analysis/passes;
 
 ###  Скомпилировать
 ``go build -o staticlint main.go``
+
+### Использование
+
+Скомпилировать и положить в корень проекта.
+
+#### Запускаем проверку
+
+```go vet -vettool=$(which staticlint) ./...```
+
