@@ -1,0 +1,2 @@
+# staticlint
+staticlint analysis
