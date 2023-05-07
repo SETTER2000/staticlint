@@ -12,3 +12,6 @@ golang.org/x/tools/go/analysis/passes;
 один анализатор из пакета staticcheck.io;
 
 два публичных анализатора.
+
+###  Скомпилировать
+``go build -o staticlint main.go``
