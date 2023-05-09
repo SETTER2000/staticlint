@@ -3,6 +3,7 @@ package main
 // https://practicum.yandex.ru/learn/go-advanced/courses/1b5a1e55-b4dc-4dbe-ab70-207b0c2a3b59/sprints/89167/topics/8e2d6b94-5ee9-4c72-995f-8c51f31fd24c/lessons/30605f8d-fe8f-4a70-923b-c80a17d822a0/
 import (
 	"golang.org/x/tools/go/analysis"
+	"golang.org/x/tools/go/analysis/multichecker"
 	"golang.org/x/tools/go/analysis/passes/asmdecl"
 	"golang.org/x/tools/go/analysis/passes/assign"
 	"golang.org/x/tools/go/analysis/passes/atomic"
@@ -30,7 +31,7 @@ import (
 	"golang.org/x/tools/go/analysis/passes/pkgfact"
 	"golang.org/x/tools/go/analysis/passes/printf"
 	"golang.org/x/tools/go/analysis/passes/reflectvaluecompare"
-	"golang.org/x/tools/go/analysis/passes/shadow"
+	//"golang.org/x/tools/go/analysis/passes/shadow"
 	"golang.org/x/tools/go/analysis/passes/shift"
 	"golang.org/x/tools/go/analysis/passes/sigchanyzer"
 	"golang.org/x/tools/go/analysis/passes/sortslice"
@@ -46,7 +47,6 @@ import (
 	"golang.org/x/tools/go/analysis/passes/unusedresult"
 	"golang.org/x/tools/go/analysis/passes/unusedwrite"
 	"golang.org/x/tools/go/analysis/passes/usesgenerics"
-	"golang.org/x/tools/go/analysis/unitchecker"
 	"honnef.co/go/tools/quickfix"
 	"honnef.co/go/tools/simple"
 	"honnef.co/go/tools/staticcheck"
@@ -121,7 +121,7 @@ func main() {
 		printf.Analyzer,
 		reflectvaluecompare.Analyzer,
 		// check for possible unintended shadowing of variables EXPERIMENTAL
-		shadow.Analyzer,
+		//shadow.Analyzer,
 		// check for shifts that equal or exceed the width of the integer
 		shift.Analyzer,
 		sigchanyzer.Analyzer,
@@ -188,5 +188,5 @@ func main() {
 		analyzers = append(analyzers, v.Analyzer)
 	}
 
-	unitchecker.Main(analyzers...)
+	multichecker.Main(analyzers...)
 }
