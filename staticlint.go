@@ -9,7 +9,7 @@ import (
 	"golang.org/x/tools/go/ast/inspector"
 )
 
-var ErrCheckAnalyzer = &analysis.Analyzer{
+var Analyzer = &analysis.Analyzer{
 	Name: "staticlint", // имя анализатора
 	// Текст с описанием работы анализатора. Этот текст будет отображаться по команде help,
 	// поэтому его нужно сделать многострочным и описать в нём все флаги анализатора.
